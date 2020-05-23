@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
+        width="400"
+        height="300"
+        viewBox="0 0 400 300"
+        version="1.1"
+>
+    <defs
+            id="defsHeroes">
+        <g id="ball0" transform="translate(0,0)">
+            <circle
+                    style="opacity:1;fill:#a5460e;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    r="10"/>
+        </g>
+        <g id="ball1" transform="translate(0,0)">
+            <circle
+                    style="opacity:1;fill:#9fa50e;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+                    r="10"/>
+        </g>
+        <g id="ball2" transform="translate(0,0)">
+            <circle
+                    style="opacity:1;fill:#0ea526;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+                    r="10"/>
+        </g>
+        <g id="ball3" transform="translate(0,0)">
+            <circle
+                    style="opacity:1;fill:#0ea1a5;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+                    r="10"/>
+        </g>
+        <g id="ball4" transform="translate(0,0)">
+            <circle
+                    style="opacity:1;fill:#0e3aa5;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+                    r="10"/>
+        </g>
+        <g id="ball5" transform="translate(0,0)">
+            <circle
+                    style="opacity:1;fill:#610ea5;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+                    r="10"/>
+        </g>
+        <g id="ball6" transform="translate(0,0)">
+            <circle
+                    style="opacity:1;fill:#a50e73;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    r="10"/>
+        </g>
+
+        <g id="heroCanon" transform="translate(0,0)">
+        <ellipse
+                style="opacity:1;fill:#5ef8e8;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                rx="15"
+                ry="15"/>
+        <g transform="translate(-15,-15) scale(0.4)">
+            <path
+                    style="fill:#62420c;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                    d="m 18.400291,18.472565 c 14.847113,7.82124 28.00786,6.92953 40,0 0,0 5,50.00004 -10,50.00004 l -19.821429,0 c -15.178571,-15 -8.452381,-33.8691 -10.178571,-50.00004 z"
+                    id="path5260"
+            />
+            <path
+                    style="fill:#9f9f9f;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.24989522px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                    d="M 18.955569,18.185582 C 35,5 40,5 57.784985,18.308434 54.996272,24.962027 47.105429,36.073506 39.254069,34.266053 28.140139,36.428568 21.233057,25.121271 18.955569,18.185582 Z"
+                    id="path5262"
+            />
+        </g>
+        </g>
+
+    </defs>
+</svg>

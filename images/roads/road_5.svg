@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="400"
+   height="300"
+   viewBox="0 0 400 300"
+   id="svg4136"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="road_1.svg"
+   class="fullScreen">
+  <defs
+     id="defs4138" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="221.84079"
+     inkscape:cy="121.96415"
+     inkscape:document-units="px"
+     inkscape:current-layer="gameLayer"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4684" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4141">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="gameLayer">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 61.785715,125.93359 C 4.8761776,36.459141 153.32035,-30.251204 151.58508,40.310581 c -0.78764,32.027943 -21.45982,37.028498 -13.62614,60.849619 4.38195,13.32487 72.33114,-6.410316 133.1644,-9.897584 C 300.25678,89.592541 310,165 347.61881,139.64649 400.44804,104.0418 324.64286,51.428571 301.65184,52.671727 c -42.3105,2.287786 -114.96377,37.01749 -112.39994,0.767712 4.51185,-63.79256 64.25332,-37.743258 97.36705,-30.448167 143.96998,31.717182 108.33888,156.944498 34.53894,205.441058 -40.07122,26.33222 -42.32972,-6.54149 -92.91154,-15.53347 -20.77662,-3.69348 -20.96587,-37.0557 22.18491,-44.19169 12.3054,-3.25293 46.7116,-21.20717 13.59075,-35.69671 -26.38355,-11.54214 -88.19048,-5.09155 -126.38333,20.23147 -50.00671,34.96368 -42.067369,70.90336 -11.11416,88.01307 26.59864,15.21848 56.2817,-1.82271 83.1708,-1.03963 C 258.23612,241.83709 260,280 218.55953,282.13497 161.6584,291.89856 64.736973,288.89171 60.714282,199.50502"
+       id="road"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssssssssscsccccc" />
+    <g
+       id="canon"
+       transform="translate(100, 80)">
+      <circle
+         style="opacity:1;fill:#5ef8e8;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse10"
+         cx="0"
+         cy="0"
+         r="15" />
+    </g>
+    <g
+       id="ballsLayer" />
+    <ellipse
+       style="opacity:1;fill:#bff85e;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4692"
+       cx="53.035717"
+       cy="124.68363"
+       rx="26.25"
+       ry="23.035715" />
+    <ellipse
+       style="opacity:1;fill:#220d01;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4694"
+       cx="61.071407"
+       cy="198.07645"
+       rx="26.071428"
+       ry="23.571428" />
+    <path
+       style="fill:#6fd273;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="m 310,270 -5,-70 25,-25 25,-10 30,30 -5,50 z"
+       id="path4143"
+       inkscape:connector-curvature="0" />
+    <g
+            id="fireLayer" />
+  </g>
+
+</svg>
