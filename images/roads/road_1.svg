@@ -7,21 +7,12 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="400"
    height="300"
    viewBox="0 0 400 300"
-   id="svg4136"
    version="1.1"
   >
-  <defs
-     id="defs4138" />
 
-  <metadata
-     id="metadata4141">
-
-  </metadata>
   <g
      id="gameLayer">
     <path
@@ -29,13 +20,19 @@
        d="m 56.428571,46.071429 c 0,0 44.999999,30 49.999999,40 5,10 -2.14286,16.071431 -2.14286,21.071431 0,5 20.71429,12.85714 12.14286,23.92857 -12.87071,22.81026 13.57143,23.92857 15,35 C 130,185 62.705277,179.63449 57.142857,223.57143 56.514869,228.53184 41.071428,242.5 46.071428,247.5 c 5,5 27.688453,3.50264 32.5,2.14286 25.727872,-3.38777 53.536582,-57.74242 72.857142,-38.57143 7.91204,8.2417 -5.3062,30.22805 24.70272,13.42319 C 205,205 219.59674,191.02739 246.42857,178.21429 265,172.14286 298.00824,172.30426 307.85714,163.92857 c 11.53414,-13.01123 18.47858,-23.14183 23.57143,-12.85714 5,10 9.2486,23.91895 18.92857,26.42857 C 360,180 365,190 366.42857,176.07143 c 1.53043,-14.92172 -12.14286,-28.21429 -17.14286,-33.21429 -5,-5 0,-20 -20,-15 -20,5 -42.85714,13.21429 -42.85714,18.21429 0,5 -10.54313,6.7492 -20,10 C 255,160 250,160 256.42857,146.07143 c 12.21754,-26.47134 35,-20 30,-45 -5,-25.000001 0,-25.000001 -15,-35.000001 -15,-10 -36.42857,-46.071429 -50,-25 -8.56151,13.292874 -5,55 -10,60.000001 -5,5 5,10 -10,25 -15,15 -25,30 -25,15 0,-15 10,-25 -5,-40 -15,-15.000001 -15,-40.000001 -35,-50.000001 l -20,-10"
        id="road"
     />
-    <ellipse
-       style="opacity:1;fill:#5ef8e8;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="canon"
-       cx="217.67873"
-       cy="241.31239"
-       rx="15"
-       ry="12.5" />
+
+      <g
+              id="canon"
+              transform="translate(217,240)">
+          <circle
+                  style="opacity:1;fill:#5ef8e8;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                  id="ellipse10"
+                  cx="0"
+                  cy="0"
+                  r="15" />
+      </g>
+      <g
+              id="ballsLayer" />
     <circle
        style="opacity:1;fill:#bff85e;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4692"
