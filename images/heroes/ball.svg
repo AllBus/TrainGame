@@ -12,43 +12,43 @@
             id="defsHeroes">
         <g id="ball0" transform="translate(0,0)">
             <circle
-                    style="opacity:1;fill:#a5460e;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-                    r="10"/>
+                    style="opacity:1;fill:#c41818;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    r="8"/>
         </g>
         <g id="ball1" transform="translate(0,0)">
             <circle
-                    style="opacity:1;fill:#9fa50e;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    style="opacity:1;fill:#7a1cd5;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 
-                    r="10"/>
+                    r="8"/>
         </g>
         <g id="ball2" transform="translate(0,0)">
             <circle
-                    style="opacity:1;fill:#0ea526;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    style="opacity:1;fill:#69d309;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 
-                    r="10"/>
+                    r="8"/>
         </g>
         <g id="ball3" transform="translate(0,0)">
             <circle
-                    style="opacity:1;fill:#0ea1a5;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    style="opacity:1;fill:#09c3d3;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 
-                    r="10"/>
+                    r="8"/>
         </g>
         <g id="ball4" transform="translate(0,0)">
             <circle
-                    style="opacity:1;fill:#0e3aa5;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    style="opacity:1;fill:#3d09d3;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 
-                    r="10"/>
+                    r="8"/>
         </g>
         <g id="ball5" transform="translate(0,0)">
             <circle
-                    style="opacity:1;fill:#610ea5;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    style="opacity:1;fill:#d309ab;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 
-                    r="10"/>
+                    r="8"/>
         </g>
         <g id="ball6" transform="translate(0,0)">
             <circle
-                    style="opacity:1;fill:#a50e73;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-                    r="10"/>
+                    style="opacity:1;fill:#f5b91c;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    r="8"/>
         </g>
 
         <g id="heroCanon" transform="translate(0,0)">
@@ -60,13 +60,15 @@
             <path
                     style="fill:#62420c;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
                     d="m 18.400291,18.472565 c 14.847113,7.82124 28.00786,6.92953 40,0 0,0 5,50.00004 -10,50.00004 l -19.821429,0 c -15.178571,-15 -8.452381,-33.8691 -10.178571,-50.00004 z"
-                    id="path5260"
             />
             <path
                     style="fill:#9f9f9f;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.24989522px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
                     d="M 18.955569,18.185582 C 35,5 40,5 57.784985,18.308434 54.996272,24.962027 47.105429,36.073506 39.254069,34.266053 28.140139,36.428568 21.233057,25.121271 18.955569,18.185582 Z"
-                    id="path5262"
             />
+            <path
+                    style="fill:#ff2804;fill-opacity:0.53;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                    d="m 35,7 0,-800 5,0 0,800 c -1.555841,-0.3541754 -3.189476,-0.5818186 -5,0"
+                    />
         </g>
         </g>
 

@@ -699,13 +699,14 @@ const $d_O = new $TypeData().initClass({
 }, (void 0), (void 0), $is_O, $isArrayOf_O);
 $c_O.prototype.$classData = $d_O;
 const $f_Lcom_kos_pathtrain_GameConst__$init$__V = (function($thiz) {
-  $thiz.com$kos$pathtrain$GameConst$_setter_$fireSpeed_$eq__I__V(500);
-  $thiz.com$kos$pathtrain$GameConst$_setter_$speed_$eq__I__V(40);
-  $thiz.com$kos$pathtrain$GameConst$_setter_$reverseSpeed_$eq__I__V(80);
-  $thiz.com$kos$pathtrain$GameConst$_setter_$levelCount_$eq__I__V(5);
-  $thiz.com$kos$pathtrain$GameConst$_setter_$DIR_SCREEN_$eq__T__V("images/screens/");
-  $thiz.com$kos$pathtrain$GameConst$_setter_$DIR_ROADS_$eq__T__V("images/roads/");
-  $thiz.com$kos$pathtrain$GameConst$_setter_$DIR_HEROES_$eq__T__V("images/heroes/")
+  $thiz.Lcom_kos_pathtrain_MainApp$__f_fireSpeed = 500;
+  $thiz.Lcom_kos_pathtrain_MainApp$__f_BASE_SPEED = 30;
+  $thiz.Lcom_kos_pathtrain_MainApp$__f_reverseSpeed = 80;
+  $thiz.Lcom_kos_pathtrain_MainApp$__f_levelCount = 5;
+  $thiz.Lcom_kos_pathtrain_MainApp$__f_BALL_RADIUS = 8.0;
+  $thiz.Lcom_kos_pathtrain_MainApp$__f_DIR_SCREEN = "images/screens/";
+  $thiz.Lcom_kos_pathtrain_MainApp$__f_DIR_ROADS = "images/roads/";
+  $thiz.Lcom_kos_pathtrain_MainApp$__f_DIR_HEROES = "images/heroes/"
 });
 class $c_Lcom_kos_pathtrain_GameHeroes extends $c_O {
   constructor(ballColors) {
@@ -713,6 +714,7 @@ class $c_Lcom_kos_pathtrain_GameHeroes extends $c_O {
     this.Lcom_kos_pathtrain_GameHeroes__f_ballColors = 0;
     this.Lcom_kos_pathtrain_GameHeroes__f_random = null;
     this.Lcom_kos_pathtrain_GameHeroes__f_runned = false;
+    this.Lcom_kos_pathtrain_GameHeroes__f_roadLength = 0.0;
     this.Lcom_kos_pathtrain_GameHeroes__f_road = null;
     this.Lcom_kos_pathtrain_GameHeroes__f_ballsLayer = null;
     this.Lcom_kos_pathtrain_GameHeroes__f_fireLayer = null;
@@ -721,9 +723,11 @@ class $c_Lcom_kos_pathtrain_GameHeroes extends $c_O {
     this.Lcom_kos_pathtrain_GameHeroes__f_moverBall = null;
     this.Lcom_kos_pathtrain_GameHeroes__f_fireBall = null;
     this.Lcom_kos_pathtrain_GameHeroes__f_canon = null;
+    this.Lcom_kos_pathtrain_GameHeroes__f_ballSvgs = null;
     this.Lcom_kos_pathtrain_GameHeroes__f_ballColors = ballColors;
     this.Lcom_kos_pathtrain_GameHeroes__f_random = $ct_s_util_Random__(new $c_s_util_Random());
     this.Lcom_kos_pathtrain_GameHeroes__f_runned = false;
+    this.Lcom_kos_pathtrain_GameHeroes__f_roadLength = 0.0;
     this.Lcom_kos_pathtrain_GameHeroes__f_road = null;
     this.Lcom_kos_pathtrain_GameHeroes__f_ballsLayer = null;
     this.Lcom_kos_pathtrain_GameHeroes__f_fireLayer = null;
@@ -731,55 +735,59 @@ class $c_Lcom_kos_pathtrain_GameHeroes extends $c_O {
     this.Lcom_kos_pathtrain_GameHeroes__f_balls = $as_sci_Seq($m_sci_Seq$().apply__sci_Seq__sc_SeqOps($m_sci_Nil$()));
     this.Lcom_kos_pathtrain_GameHeroes__f_moverBall = $ct_Lcom_kos_pathtrain_heroes_Ball__(new $c_Lcom_kos_pathtrain_heroes_Ball());
     this.Lcom_kos_pathtrain_GameHeroes__f_fireBall = new $c_Lcom_kos_pathtrain_heroes_FireBall();
-    this.Lcom_kos_pathtrain_GameHeroes__f_canon = new $c_Lcom_kos_pathtrain_heroes_Canon()
-  };
-  createBalls__V() {
-    const ballSvgs = $as_sci_IndexedSeq($m_Lcom_kos_pathtrain_heroes_Hero$().Lcom_kos_pathtrain_heroes_Hero$__f_HERO_BALLS.map__F1__O(new $c_sjsr_AnonFunction1(((this$1) => ((i$2) => {
+    this.Lcom_kos_pathtrain_GameHeroes__f_canon = new $c_Lcom_kos_pathtrain_heroes_Canon();
+    this.Lcom_kos_pathtrain_GameHeroes__f_ballSvgs = $as_sci_IndexedSeq($m_Lcom_kos_pathtrain_heroes_Hero$().Lcom_kos_pathtrain_heroes_Hero$__f_HERO_BALLS.map__F1__O(new $c_sjsr_AnonFunction1(((this$1) => ((i$2) => {
       const i = $as_T(i$2);
       return $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById(i)
-    }))(this))));
+    }))(this))))
+  };
+  createBalls__I__V(ballcount) {
+    const isEmpty = (ballcount <= 0);
+    let scala$collection$immutable$Range$$numRangeElements;
+    if (isEmpty) {
+      scala$collection$immutable$Range$$numRangeElements = 0
+    } else {
+      const hi = (ballcount >> 31);
+      scala$collection$immutable$Range$$numRangeElements = (((hi === 0) ? (((-2147483648) ^ ballcount) > (-1)) : (hi > 0)) ? (-1) : ballcount)
+    };
+    const scala$collection$immutable$Range$$lastElement = (((-1) + ballcount) | 0);
+    if ((scala$collection$immutable$Range$$numRangeElements < 0)) {
+      $m_sci_Range$().scala$collection$immutable$Range$$fail__I__I__I__Z__E(0, ballcount, 1, false)
+    };
     const b = $m_sci_IndexedSeq$().newBuilder__scm_Builder();
-    const it = new $c_sci_RangeIterator(0, 1, 24, false);
+    const it = new $c_sci_RangeIterator(0, 1, scala$collection$immutable$Range$$lastElement, isEmpty);
     while (it.sci_RangeIterator__f__hasNext) {
       const arg1 = it.next__I();
-      const this$5 = this.Lcom_kos_pathtrain_GameHeroes__f_random;
+      const this$6 = this.Lcom_kos_pathtrain_GameHeroes__f_random;
       const n = this.Lcom_kos_pathtrain_GameHeroes__f_ballColors;
-      const color = this$5.s_util_Random__f_self.nextInt__I__I(n);
-      const node = ballSvgs.apply__I__O(color).cloneNode(true);
+      const color = this$6.s_util_Random__f_self.nextInt__I__I(n);
+      const node = this.Lcom_kos_pathtrain_GameHeroes__f_ballSvgs.apply__I__O(color).cloneNode(true);
       const ball = $ct_Lcom_kos_pathtrain_heroes_Ball__(new $c_Lcom_kos_pathtrain_heroes_Ball());
-      ball.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (2.0 * ((((-25) + arg1) | 0) * ball.Lcom_kos_pathtrain_heroes_Hero__f_radius));
+      ball.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (2.0 * (((((-ballcount) | 0) + arg1) | 0) * ball.Lcom_kos_pathtrain_heroes_Hero__f_radius));
       ball.Lcom_kos_pathtrain_heroes_Ball__f_color = color;
       $f_Lcom_kos_pathtrain_heroes_HeroNode__setNode__Lorg_scalajs_dom_raw_SVGGElement__V(ball, node);
       this.Lcom_kos_pathtrain_GameHeroes__f_ballsLayer.appendChild(node);
       b.addOne__O__scm_Growable(ball)
     };
-    this.Lcom_kos_pathtrain_GameHeroes__f_balls = $as_sci_Seq($as_sci_IndexedSeq(b.result__O()).map__F1__O(new $c_sjsr_AnonFunction1(((this$3$1) => ((ball$2) => {
+    this.Lcom_kos_pathtrain_GameHeroes__f_balls = $as_sci_Seq($as_sci_IndexedSeq(b.result__O()).map__F1__O(new $c_sjsr_AnonFunction1(((this$2$1) => ((ball$2) => {
       const ball$1 = $as_Lcom_kos_pathtrain_heroes_Ball(ball$2);
       return ball$1
     }))(this))));
     this.Lcom_kos_pathtrain_GameHeroes__f_moverBall = $ct_Lcom_kos_pathtrain_heroes_Ball__(new $c_Lcom_kos_pathtrain_heroes_Ball());
-    this.Lcom_kos_pathtrain_GameHeroes__f_moverBall.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (2.0 * ((-25.0) * this.Lcom_kos_pathtrain_GameHeroes__f_moverBall.Lcom_kos_pathtrain_heroes_Hero__f_radius));
+    this.Lcom_kos_pathtrain_GameHeroes__f_moverBall.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (2.0 * (((-ballcount) | 0) * this.Lcom_kos_pathtrain_GameHeroes__f_moverBall.Lcom_kos_pathtrain_heroes_Hero__f_radius));
     this.Lcom_kos_pathtrain_GameHeroes__f_moverBall.Lcom_kos_pathtrain_heroes_Ball__f_color = 0;
-    const moveNode = ballSvgs.apply__I__O(0).cloneNode(true);
+    const moveNode = this.Lcom_kos_pathtrain_GameHeroes__f_ballSvgs.apply__I__O(0).cloneNode(true);
     moveNode.id = "moverBall";
-    const this$6 = this.Lcom_kos_pathtrain_GameHeroes__f_moverBall;
-    $f_Lcom_kos_pathtrain_heroes_HeroNode__setNode__Lorg_scalajs_dom_raw_SVGGElement__V(this$6, moveNode);
+    const this$7 = this.Lcom_kos_pathtrain_GameHeroes__f_moverBall;
+    $f_Lcom_kos_pathtrain_heroes_HeroNode__setNode__Lorg_scalajs_dom_raw_SVGGElement__V(this$7, moveNode);
     this.nextFireBall__V()
   };
   nextFireBall__V() {
-    const b = $m_sci_IndexedSeq$().newBuilder__scm_Builder();
-    const it = new $c_sci_RangeIterator(0, 1, 6, false);
-    while (it.sci_RangeIterator__f__hasNext) {
-      const arg1 = it.next__I();
-      const elem = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById(("ball" + arg1));
-      b.addOne__O__scm_Growable(elem)
-    };
-    const ballSvgs = $as_sci_IndexedSeq(b.result__O());
     if ((this.Lcom_kos_pathtrain_GameHeroes__f_fireBall !== null)) {
-      const this$4 = this.Lcom_kos_pathtrain_GameHeroes__f_fireBall;
-      const node = this$4.Lcom_kos_pathtrain_heroes_Ball__f_com$kos$pathtrain$heroes$HeroNode$$node;
-      const this$5 = this.Lcom_kos_pathtrain_GameHeroes__f_fireBall;
-      $f_Lcom_kos_pathtrain_heroes_HeroNode__setNode__Lorg_scalajs_dom_raw_SVGGElement__V(this$5, null);
+      const this$1 = this.Lcom_kos_pathtrain_GameHeroes__f_fireBall;
+      const node = this$1.Lcom_kos_pathtrain_heroes_Ball__f_com$kos$pathtrain$heroes$HeroNode$$node;
+      const this$2 = this.Lcom_kos_pathtrain_GameHeroes__f_fireBall;
+      $f_Lcom_kos_pathtrain_heroes_HeroNode__setNode__Lorg_scalajs_dom_raw_SVGGElement__V(this$2, null);
       if ((node !== null)) {
         this.Lcom_kos_pathtrain_GameHeroes__f_fireLayer.removeChild(node)
       };
@@ -788,10 +796,10 @@ class $c_Lcom_kos_pathtrain_GameHeroes extends $c_O {
     if ((this.Lcom_kos_pathtrain_GameHeroes__f_balls.length__I() > 0)) {
       const newfireBall = new $c_Lcom_kos_pathtrain_heroes_FireBall();
       const $$x1 = this.Lcom_kos_pathtrain_GameHeroes__f_balls;
-      const this$6 = this.Lcom_kos_pathtrain_GameHeroes__f_random;
+      const this$3 = this.Lcom_kos_pathtrain_GameHeroes__f_random;
       const n = this.Lcom_kos_pathtrain_GameHeroes__f_balls.length__I();
-      const color = $as_Lcom_kos_pathtrain_heroes_Ball($$x1.apply__I__O(this$6.s_util_Random__f_self.nextInt__I__I(n))).Lcom_kos_pathtrain_heroes_Ball__f_color;
-      const fireBallNode = ballSvgs.apply__I__O(color).cloneNode(true);
+      const color = $as_Lcom_kos_pathtrain_heroes_Ball($$x1.apply__I__O(this$3.s_util_Random__f_self.nextInt__I__I(n))).Lcom_kos_pathtrain_heroes_Ball__f_color;
+      const fireBallNode = this.Lcom_kos_pathtrain_GameHeroes__f_ballSvgs.apply__I__O(color).cloneNode(true);
       fireBallNode.id = "fireBall";
       $f_Lcom_kos_pathtrain_heroes_HeroNode__setNode__Lorg_scalajs_dom_raw_SVGGElement__V(newfireBall, fireBallNode);
       const point = this.Lcom_kos_pathtrain_GameHeroes__f_canonPoint;
@@ -801,11 +809,12 @@ class $c_Lcom_kos_pathtrain_GameHeroes extends $c_O {
       this.Lcom_kos_pathtrain_GameHeroes__f_fireBall.Lcom_kos_pathtrain_heroes_Ball__f_color = color
     }
   };
-  setup__Lorg_scalajs_dom_raw_SVGSVGElement__V(svg) {
+  setup__Lorg_scalajs_dom_raw_SVGSVGElement__I__V(svg, level) {
     this.Lcom_kos_pathtrain_GameHeroes__f_road = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("road");
     const canonElement = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("canon");
     this.Lcom_kos_pathtrain_GameHeroes__f_ballsLayer = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("ballsLayer");
     this.Lcom_kos_pathtrain_GameHeroes__f_fireLayer = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("fireLayer");
+    this.Lcom_kos_pathtrain_GameHeroes__f_roadLength = $uD(this.Lcom_kos_pathtrain_GameHeroes__f_road.getTotalLength());
     const canonHero = $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("heroCanon");
     const canonNode = canonHero.cloneNode(true);
     canonElement.appendChild(canonNode);
@@ -816,7 +825,7 @@ class $c_Lcom_kos_pathtrain_GameHeroes extends $c_O {
     this.Lcom_kos_pathtrain_GameHeroes__f_canonPoint = svg.createSVGPoint();
     this.Lcom_kos_pathtrain_GameHeroes__f_canonPoint.x = $uD(m.e);
     this.Lcom_kos_pathtrain_GameHeroes__f_canonPoint.y = $uD(m.f);
-    this.createBalls__V()
+    this.createBalls__I__V(((25 + $imul(5, level)) | 0))
   };
   intersectRoadFire__I() {
     const nonLocalReturnKey1 = $ct_O__(new $c_O());
@@ -833,6 +842,9 @@ class $c_Lcom_kos_pathtrain_GameHeroes extends $c_O {
             const v1 = i;
             const b = $as_Lcom_kos_pathtrain_heroes_Ball(this.Lcom_kos_pathtrain_GameHeroes__f_balls.apply__I__O(v1));
             if (($m_Lcom_kos_wormpad_geometry_Geometry$().distance__Lcom_kos_pathtrain_heroes_Hero__Lcom_kos_pathtrain_heroes_Hero__D(f, b) < (f.Lcom_kos_pathtrain_heroes_Hero__f_radius + b.Lcom_kos_pathtrain_heroes_Hero__f_radius))) {
+              if ((b.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition > this.Lcom_kos_pathtrain_GameHeroes__f_roadLength)) {
+                throw new $c_sr_NonLocalReturnControl$mcI$sp(nonLocalReturnKey1, (-1))
+              };
               f.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (b.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition + b.Lcom_kos_pathtrain_heroes_Hero__f_radius);
               const this$5 = $as_sc_SeqOps(this.Lcom_kos_pathtrain_GameHeroes__f_balls.take__I__O(v1));
               const this$6 = $as_sc_SeqOps(this$5.appended__O__O(f));
@@ -5545,7 +5557,13 @@ function $isArrayOf_sci_MapNode(obj, depth) {
 function $asArrayOf_sci_MapNode(obj, depth) {
   return (($isArrayOf_sci_MapNode(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lscala.collection.immutable.MapNode;", depth))
 }
+const $p_sci_Range$__description__I__I__I__Z__T = (function($thiz, start, end, step, isInclusive) {
+  return ((((start + (isInclusive ? " to " : " until ")) + end) + " by ") + step)
+});
 class $c_sci_Range$ extends $c_O {
+  scala$collection$immutable$Range$$fail__I__I__I__Z__E(start, end, step, isInclusive) {
+    throw $ct_jl_IllegalArgumentException__T__(new $c_jl_IllegalArgumentException(), ($p_sci_Range$__description__I__I__I__Z__T(this, start, end, step, isInclusive) + ": seqs cannot contain more than Int.MaxValue elements."))
+  };
 }
 const $d_sci_Range$ = new $TypeData().initClass({
   sci_Range$: 0
@@ -6053,6 +6071,7 @@ const $ct_Lcom_kos_pathtrain_heroes_Ball__ = (function($thiz) {
   $f_Lcom_kos_pathtrain_heroes_HeroNode__$init$__V($thiz);
   $thiz.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = 0.0;
   $thiz.Lcom_kos_pathtrain_heroes_Ball__f_kind = 1;
+  $thiz.Lcom_kos_pathtrain_heroes_Hero__f_radius = 8.0;
   $thiz.Lcom_kos_pathtrain_heroes_Ball__f_color = (-65281);
   return $thiz
 });
@@ -12576,9 +12595,10 @@ class $c_Lcom_kos_pathtrain_MainApp$ extends $c_O {
     this.Lcom_kos_pathtrain_MainApp$__f_comboMultiply = 0;
     this.Lcom_kos_pathtrain_MainApp$__f_currentLevel = 0;
     this.Lcom_kos_pathtrain_MainApp$__f_fireSpeed = 0;
-    this.Lcom_kos_pathtrain_MainApp$__f_speed = 0;
+    this.Lcom_kos_pathtrain_MainApp$__f_BASE_SPEED = 0;
     this.Lcom_kos_pathtrain_MainApp$__f_reverseSpeed = 0;
     this.Lcom_kos_pathtrain_MainApp$__f_levelCount = 0;
+    this.Lcom_kos_pathtrain_MainApp$__f_BALL_RADIUS = 0.0;
     this.Lcom_kos_pathtrain_MainApp$__f_DIR_SCREEN = null;
     this.Lcom_kos_pathtrain_MainApp$__f_DIR_ROADS = null;
     this.Lcom_kos_pathtrain_MainApp$__f_DIR_HEROES = null;
@@ -12638,27 +12658,6 @@ class $c_Lcom_kos_pathtrain_MainApp$ extends $c_O {
   $js$exported$prop$listener__O() {
     return this.Lcom_kos_pathtrain_MainApp$__f_listener_
   };
-  com$kos$pathtrain$GameConst$_setter_$fireSpeed_$eq__I__V(x$1) {
-    this.Lcom_kos_pathtrain_MainApp$__f_fireSpeed = x$1
-  };
-  com$kos$pathtrain$GameConst$_setter_$speed_$eq__I__V(x$1) {
-    this.Lcom_kos_pathtrain_MainApp$__f_speed = x$1
-  };
-  com$kos$pathtrain$GameConst$_setter_$reverseSpeed_$eq__I__V(x$1) {
-    this.Lcom_kos_pathtrain_MainApp$__f_reverseSpeed = x$1
-  };
-  com$kos$pathtrain$GameConst$_setter_$levelCount_$eq__I__V(x$1) {
-    this.Lcom_kos_pathtrain_MainApp$__f_levelCount = x$1
-  };
-  com$kos$pathtrain$GameConst$_setter_$DIR_SCREEN_$eq__T__V(x$1) {
-    this.Lcom_kos_pathtrain_MainApp$__f_DIR_SCREEN = x$1
-  };
-  com$kos$pathtrain$GameConst$_setter_$DIR_ROADS_$eq__T__V(x$1) {
-    this.Lcom_kos_pathtrain_MainApp$__f_DIR_ROADS = x$1
-  };
-  com$kos$pathtrain$GameConst$_setter_$DIR_HEROES_$eq__T__V(x$1) {
-    this.Lcom_kos_pathtrain_MainApp$__f_DIR_HEROES = x$1
-  };
   main__AT__V(args) {
     $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("display");
     $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().getElementById("display");
@@ -12702,7 +12701,7 @@ class $c_Lcom_kos_pathtrain_MainApp$ extends $c_O {
       $f_Lcom_kos_wormpad_game_GameScore__score_$eq__I__V(this, value);
       this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.babach__I__I__V(l, r);
       const ev$1 = this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_moverBall;
-      ev$1.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (ev$1.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition - $imul(10, ((r - l) | 0)));
+      ev$1.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (ev$1.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition - (2.0 * (((r - l) | 0) * this.Lcom_kos_pathtrain_MainApp$__f_BALL_RADIUS)));
       this.Lcom_kos_pathtrain_MainApp$__f_comboMultiply = ((2 + multi) | 0);
       return l
     } else {
@@ -12722,20 +12721,25 @@ class $c_Lcom_kos_pathtrain_MainApp$ extends $c_O {
     if ($$x1) {
       const postgameOver = new $c_sr_BooleanRef(false);
       this.Lcom_kos_pathtrain_MainApp$__f_gameTime = (this.Lcom_kos_pathtrain_MainApp$__f_gameTime + timeDelta);
-      const roadLength = $uD(this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_road.getTotalLength());
+      const roadLength = this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_roadLength;
+      const b = (roadLength - (this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_moverBall.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition + (2.0 * (this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_balls.length__I() * this.Lcom_kos_pathtrain_MainApp$__f_BALL_RADIUS))));
+      const a = $uD(Math.max(0.0, b));
+      const pos = ($uD(Math.min(a, roadLength)) / roadLength);
+      const pos2 = (((pos * pos) * (pos + 1.0)) + 0.4);
+      const speed = (this.Lcom_kos_pathtrain_MainApp$__f_BASE_SPEED * pos2);
       const ev$1 = this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_moverBall;
-      ev$1.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (ev$1.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition + (this.Lcom_kos_pathtrain_MainApp$__f_speed * timeDelta));
+      ev$1.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = (ev$1.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition + (speed * timeDelta));
       const elem = this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_moverBall;
       const predBall = new $c_sr_ObjectRef(elem);
       const i = new $c_sr_IntRef((-1));
-      this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_balls.foreach__F1__V(new $c_sjsr_AnonFunction1(((this$5, i$1, predBall$1, timeDelta$1, roadLength$1, postgameOver$1) => ((ball$2) => {
+      this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_balls.foreach__F1__V(new $c_sjsr_AnonFunction1(((this$7, i$1, predBall$1, timeDelta$1, roadLength$1, postgameOver$1) => ((ball$2) => {
         const ball = $as_Lcom_kos_pathtrain_heroes_Ball(ball$2);
         i$1.sr_IntRef__f_elem = ((1 + i$1.sr_IntRef__f_elem) | 0);
         const minpos = (($as_Lcom_kos_pathtrain_heroes_Ball(predBall$1.sr_ObjectRef__f_elem).Lcom_kos_pathtrain_heroes_Ball__f_strokePosition + ball.Lcom_kos_pathtrain_heroes_Hero__f_radius) + $as_Lcom_kos_pathtrain_heroes_Ball(predBall$1.sr_ObjectRef__f_elem).Lcom_kos_pathtrain_heroes_Hero__f_radius);
         if ((ball.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition < minpos)) {
           ball.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition = minpos;
           if ((i$1.sr_IntRef__f_elem === $m_Lcom_kos_pathtrain_MainApp$().Lcom_kos_pathtrain_MainApp$__f_destroyIndex)) {
-            $m_Lcom_kos_pathtrain_MainApp$().combo__I__I__I(i$1.sr_IntRef__f_elem, $m_Lcom_kos_pathtrain_MainApp$().Lcom_kos_pathtrain_MainApp$__f_comboMultiply)
+            $m_Lcom_kos_pathtrain_MainApp$().Lcom_kos_pathtrain_MainApp$__f_destroyIndex = $m_Lcom_kos_pathtrain_MainApp$().combo__I__I__I(i$1.sr_IntRef__f_elem, $m_Lcom_kos_pathtrain_MainApp$().Lcom_kos_pathtrain_MainApp$__f_comboMultiply)
           }
         } else {
           const reversePosition = (ball.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition - (timeDelta$1 * $m_Lcom_kos_pathtrain_MainApp$().Lcom_kos_pathtrain_MainApp$__f_reverseSpeed));
@@ -12748,25 +12752,25 @@ class $c_Lcom_kos_pathtrain_MainApp$ extends $c_O {
         const point = $m_Lcom_kos_pathtrain_MainApp$().Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_road.getPointAtLength(ball.Lcom_kos_pathtrain_heroes_Ball__f_strokePosition);
         $f_Lcom_kos_pathtrain_heroes_HeroNode__transform__Lorg_scalajs_dom_raw_SVGPoint__V(ball, point);
         predBall$1.sr_ObjectRef__f_elem = ball;
-        if ((minpos > roadLength$1)) {
+        if ((minpos > (roadLength$1 + (10.0 * $m_Lcom_kos_pathtrain_MainApp$().Lcom_kos_pathtrain_MainApp$__f_BALL_RADIUS)))) {
           postgameOver$1.sr_BooleanRef__f_elem = true
         }
       }))(this, i, predBall, timeDelta, roadLength, postgameOver)));
       const angle = this.Lcom_kos_pathtrain_MainApp$__f_dpad.angle__D();
-      const this$6 = this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_canon;
-      $f_Lcom_kos_pathtrain_heroes_HeroNode__rotate__D__V(this$6, angle);
+      const this$8 = this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_canon;
+      $f_Lcom_kos_pathtrain_heroes_HeroNode__rotate__D__V(this$8, angle);
       if ((this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_fireBall !== null)) {
         this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_fireBall.move__D__V(timeDelta);
         const insertPos = this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.intersectRoadFire__I();
         if ((insertPos >= 0)) {
-          this.Lcom_kos_pathtrain_MainApp$__f_destroyIndex = this.combo__I__I__I(insertPos, 1);
-          if (this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_balls.isEmpty__Z()) {
-            postgameOver.sr_BooleanRef__f_elem = true
-          }
+          this.Lcom_kos_pathtrain_MainApp$__f_destroyIndex = this.combo__I__I__I(insertPos, 1)
         };
         if ((!this.inGameRect__Lcom_kos_pathtrain_heroes_Hero__Z(this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_fireBall))) {
           this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.nextFireBall__V()
         }
+      };
+      if (this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_balls.isEmpty__Z()) {
+        postgameOver.sr_BooleanRef__f_elem = true
       };
       if (postgameOver.sr_BooleanRef__f_elem) {
         if ((this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes.Lcom_kos_pathtrain_GameHeroes__f_balls.isEmpty__Z() && (this.Lcom_kos_pathtrain_MainApp$__f_currentLevel < this.Lcom_kos_pathtrain_MainApp$__f_levelCount))) {
@@ -12787,7 +12791,7 @@ class $c_Lcom_kos_pathtrain_MainApp$ extends $c_O {
   };
   setupGameElements__V() {
     const heroes = new $c_Lcom_kos_pathtrain_GameHeroes(4);
-    heroes.setup__Lorg_scalajs_dom_raw_SVGSVGElement__V(this.Lcom_kos_pathtrain_MainApp$__f_svg);
+    heroes.setup__Lorg_scalajs_dom_raw_SVGSVGElement__I__V(this.Lcom_kos_pathtrain_MainApp$__f_svg, this.Lcom_kos_pathtrain_MainApp$__f_currentLevel);
     $p_Lcom_kos_pathtrain_MainApp$__setupDPad__Lorg_scalajs_dom_raw_SVGPoint__Lorg_scalajs_dom_raw_HTMLElement__V(this, heroes.Lcom_kos_pathtrain_GameHeroes__f_canonPoint, this.Lcom_kos_pathtrain_MainApp$__f_roadLayer);
     heroes.Lcom_kos_pathtrain_GameHeroes__f_runned = true;
     this.Lcom_kos_pathtrain_MainApp$__f_gameHeroes = heroes
